@@ -1,48 +1,49 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: './src/index.js',
   },
   plugins: [
-    new CleanWebpackPlugin(["app"]),
+    new CleanWebpackPlugin(['app']),
     new HtmlWebpackPlugin({
-      title: "Minimum-Viable",
-      filename: "index.html",
-      template: "./public/index.html"
-    })
+      title: 'Minimum-Viable',
+      filename: 'index.html',
+      template: './public/index.html',
+    }),
   ],
   module: {
     rules: [
       {
         test: /\.jsx?$/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["es2015", "react"]
-          }
+            presets: ['es2015', 'react'],
+          },
         },
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.js$/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["es2015", "react"]
-          }
+            presets: ['es2015', 'react'],
+          },
         },
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "app")
-  }
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'app'),
+  },
 };
