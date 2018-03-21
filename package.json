@@ -1,15 +1,13 @@
 {
-  "name": "ReactStarter",
+  "name": "reactstarter",
   "version": "1.0.0",
   "main": "index.js",
   "license": "Apache 2.0",
   "scripts": {
-    "start":
-      "webpack-dev-server --config ./webpack.config.dev.js --progress --colors",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js --progress --colors",
     "build": "webpack --config ./webpack.config.prod.js --progress --colors",
     "lint": "eslint src",
-    "eslint-check":
-      "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "format": "prettier --write '{.babelrc,.eslintrc,**/*.{js,css,md}}'"
   },
   "devDependencies": {
