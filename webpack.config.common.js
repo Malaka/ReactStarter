@@ -20,9 +20,6 @@ module.exports = {
         test: /\.jsx?$/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['es2015', 'react'],
-          },
         },
         exclude: /node_modules/,
       },
@@ -30,15 +27,21 @@ module.exports = {
         test: /\.js$/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['es2015', 'react'],
-          },
         },
         exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader',
+            options: { minimize: true },
+          },
+        ],
       },
     ],
   },
