@@ -30,5 +30,8 @@ module.exports = {
     'import/no-named-as-default-member': 0,
     'import/no-unresolved': 0,
     'import/no-webpack-loader-syntax': 0,
+    'react/prefer-stateless-function': 0,
+    'react/no-multi-comp': 0,
+    'class-methods-use-this': 0,
   },
 };
