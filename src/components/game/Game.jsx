@@ -7,7 +7,7 @@ import Board from '../board/Board';
 class Game extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { history: [{ squares: Array(9).fill(null) }], stepNumber: 0, xIsNext: true };
+    this.state = { history: [{ squares: Array(9).fill(null) }], stepNumber: 0, currentMove: 0, xIsNext: true };
   }
 
   nextPlayer = () => (this.state.xIsNext ? 'X' : 'O');
@@ -30,6 +30,7 @@ class Game extends React.Component {
         },
       ]),
       stepNumber: history.length,
+      currentMove: i,
       xIsNext,
     });
   };
@@ -51,11 +52,15 @@ class Game extends React.Component {
 
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move #${move}` : 'Go to game start';
-      return (
-        <li key={move}>
+      const btn =
+        move === this.state.stepNumber && this.state.stepNumber + 1 !== history.length ? (
+          <button onClick={() => this.jumpTo(move)}>
+            <strong> {desc}</strong>
+          </button>
+        ) : (
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
+        );
+      return <li key={move}>{btn}</li>;
     });
 
     let status;
