@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.dev.js --mode development --progress --colors --open",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js --mode development --progress --colors --hot --open",
     "build": "webpack --config ./webpack.config.prod.js --mode production --progress --colors ",
     "lint": "eslint src",
     "lint:css": "stylelint \"src/**/*.css\"",
